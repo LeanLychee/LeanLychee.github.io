@@ -17,6 +17,21 @@
 <body>
   
   
+  // Check if Web3 has been injected by the browser (Mist/MetaMask)
+if (typeof web3 !== 'undefined') {
+    // Use Mist/MetaMask's provider
+    web3js = new Web3(web3.currentProvider);
+} else {
+    // Fallback - use Portis
+    web3js = new Web3(new PortisProvider({
+        apiKey: "4cfddab3006bea4f55e229d60efd6e5c"
+    }));
+}
+
+// Now you can start your app & access web3 freely:
+startApp();
+  
+  
 
   <div class="outer">
   <div class="middle">
